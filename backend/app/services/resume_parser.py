@@ -101,8 +101,8 @@ class ResumeParserService:
         # Step 2: LLM normalisation
         structured_profile = None
         structured_dict: dict = {}
-        extraction_provider = "openai"
-        extraction_model = settings.OPENAI_MODEL
+        extraction_provider = "azure_openai"
+        extraction_model = settings.AZURE_DEPLOYMENT_GPT4OMINI
         confidence = None
 
         if raw_text.strip():
