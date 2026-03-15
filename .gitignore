@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Environment
+.env
+.env.prod
+*.env.local
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Docker
+.docker/
+
+# Uploads
+backend/uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Alembic
+# (keep versions tracked)
+
+# Logs
+*.log
+logs/
+
+# Deployment script (contains server credentials)
+deploy.py
