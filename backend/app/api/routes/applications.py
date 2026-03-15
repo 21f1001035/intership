@@ -95,7 +95,6 @@ def create_application(
         internship_track=payload.internship_track,
         status=ApplicationStatus.RECEIVED,
         source=payload.source,
-        statement_of_interest=payload.statement_of_interest,
         application_token=token,
     )
     db.add(application)

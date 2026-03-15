@@ -28,7 +28,6 @@ class ApplicationCreate(BaseModel):
     # Application fields
     internship_track: str = Field(default="AI/ML", max_length=100)
     source: Optional[str] = Field(None, max_length=100)
-    statement_of_interest: Optional[str] = Field(None, max_length=5000)
 
 
 class ApplicationRead(BaseModel):
@@ -40,7 +39,6 @@ class ApplicationRead(BaseModel):
     internship_track: str
     status: ApplicationStatus
     source: Optional[str]
-    statement_of_interest: Optional[str]
     application_token: str
     submitted_at: datetime
     completed_at: Optional[datetime]

@@ -19,7 +19,6 @@ const form = reactive({
   cgpa: '',
   linkedin_url: '',
   github_url: '',
-  statement_of_interest: '',
 })
 const errors = reactive({})
 const submitting = ref(false)
@@ -33,7 +32,6 @@ function validate() {
   if (!form.degree) e.degree = 'Required'
   if (!form.branch.trim()) e.branch = 'Required'
   if (!form.year_of_study) e.year_of_study = 'Required'
-  if (!form.statement_of_interest.trim() || form.statement_of_interest.length < 100) e.statement_of_interest = 'Minimum 100 characters'
   if (form.cgpa && (parseFloat(form.cgpa) < 0 || parseFloat(form.cgpa) > 10)) e.cgpa = 'Must be between 0 and 10'
   Object.keys(errors).forEach((k) => delete errors[k])
   Object.assign(errors, e)
@@ -151,17 +149,6 @@ async function submit() {
                 <label class="label">GitHub URL</label>
                 <input v-model="form.github_url" type="url" class="input-field" placeholder="https://github.com/..." />
               </div>
-            </div>
-          </div>
-
-          <!-- Statement -->
-          <div class="card">
-            <h2 class="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-4">Statement of Interest</h2>
-            <label class="label">Why do you want this AI/ML internship? <span class="text-red-400">*</span></label>
-            <textarea v-model="form.statement_of_interest" rows="5" class="input-field resize-none" placeholder="Describe your motivation, relevant experience, and what you hope to achieve..."></textarea>
-            <div class="flex justify-between mt-1">
-              <p v-if="errors.statement_of_interest" class="text-red-400 text-xs">{{ errors.statement_of_interest }}</p>
-              <p class="text-xs text-neutral-600 ml-auto">{{ form.statement_of_interest.length }}/1000</p>
             </div>
           </div>
 
