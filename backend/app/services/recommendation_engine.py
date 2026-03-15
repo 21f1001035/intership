@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+import structlog
 from uuid import UUID
 
 from sqlalchemy.orm import Session
@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.models.recommendation import Recommendation, RecommendationLabel
 from app.models.scoring import InterviewScore
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 
 class RecommendationEngine:

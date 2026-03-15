@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import logging
+import structlog
 from typing import Any, Dict
 
 from openai import AzureOpenAI, OpenAIError
@@ -28,7 +28,7 @@ from app.schemas.llm import (
     ResumeStructuredProfile,
 )
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 
 class OpenAIProvider(LLMProvider):

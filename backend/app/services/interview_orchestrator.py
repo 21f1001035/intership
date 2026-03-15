@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import logging
+import structlog
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
@@ -23,7 +23,7 @@ from app.models.scoring import InterviewScore
 from app.services.audit_service import AuditService
 from app.services.scoring_engine import ScoringEngine
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 # Ordered list of themes — must complete all before the interview is finalised
 THEME_ORDER: List[InterviewTheme] = [

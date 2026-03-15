@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+import structlog
 from datetime import datetime, timezone
 from typing import List, Optional
 from uuid import UUID
@@ -31,7 +31,7 @@ from app.schemas.scoring import InterviewScoreRead
 from app.services.audit_service import AuditService
 
 router = APIRouter(prefix="/admin", tags=["admin"])
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 _audit = AuditService()
 
 

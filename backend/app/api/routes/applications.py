@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-import logging
+import structlog
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, File, Header, HTTPException, Request, UploadFile, status
@@ -20,7 +20,7 @@ from app.services.resume_parser import ResumeParserService
 from app.services.storage import get_storage_service
 
 router = APIRouter(tags=["applications"])
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 _audit = AuditService()
 
 

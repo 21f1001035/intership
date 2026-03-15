@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import io
-import logging
+import structlog
 from uuid import UUID
 
 from sqlalchemy.orm import Session
@@ -10,7 +10,7 @@ from app.llm.base import LLMProvider
 from app.models.resume_extraction import ResumeExtraction
 from app.core.config import settings
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 
 class ResumeParserService:

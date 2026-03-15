@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+import structlog
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, Header, HTTPException, Request, status
@@ -21,7 +21,7 @@ from app.services.audit_service import AuditService
 from app.services.interview_orchestrator import InterviewOrchestrator
 
 router = APIRouter(tags=["interview"])
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 _audit = AuditService()
 
 

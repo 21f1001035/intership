@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-import logging
+import structlog
 from uuid import UUID
 
 from celery import shared_task
 
 from app.workers.celery_app import celery_app
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 
 @celery_app.task(

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+import structlog
 from typing import Dict, Optional
 from uuid import UUID
 
@@ -10,7 +10,7 @@ from app.models.interview import InterviewTheme
 from app.models.scoring import InterviewScore
 from app.schemas.llm import AnswerEvaluation
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 
 class ScoringEngine:

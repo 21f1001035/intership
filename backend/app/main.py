@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import logging
+import structlog
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,7 +12,7 @@ from app.core.logging import configure_logging
 # Configure logging before anything else
 configure_logging()
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 app = FastAPI(
     title="IIT Ropar Screening Bot",
