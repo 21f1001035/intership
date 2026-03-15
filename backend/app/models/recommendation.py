@@ -36,7 +36,7 @@ class Recommendation(Base):
         index=True,
     )
     label: Mapped[RecommendationLabel] = mapped_column(
-        SAEnum(RecommendationLabel, name="recommendation_label"),
+        SAEnum(RecommendationLabel, name="recommendation_label", values_callable=lambda obj: [e.value for e in obj]),
         nullable=False,
         index=True,
     )

@@ -51,13 +51,13 @@ class InterviewSession(Base):
         index=True,
     )
     session_status: Mapped[InterviewStatus] = mapped_column(
-        SAEnum(InterviewStatus, name="interview_status"),
+        SAEnum(InterviewStatus, name="interview_status", values_callable=lambda obj: [e.value for e in obj]),
         nullable=False,
         default=InterviewStatus.NOT_STARTED,
         index=True,
     )
     current_theme: Mapped[InterviewTheme] = mapped_column(
-        SAEnum(InterviewTheme, name="interview_theme"),
+        SAEnum(InterviewTheme, name="interview_theme", values_callable=lambda obj: [e.value for e in obj]),
         nullable=False,
         default=InterviewTheme.MOTIVATION,
     )
@@ -100,7 +100,7 @@ class InterviewMessage(Base):
         index=True,
     )
     sender_type: Mapped[SenderType] = mapped_column(
-        SAEnum(SenderType, name="sender_type"),
+        SAEnum(SenderType, name="sender_type", values_callable=lambda obj: [e.value for e in obj]),
         nullable=False,
     )
     message_text: Mapped[str] = mapped_column(Text, nullable=False)

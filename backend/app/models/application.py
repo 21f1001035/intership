@@ -44,7 +44,7 @@ class Application(Base):
         String(100), nullable=False, default="AI/ML"
     )
     status: Mapped[ApplicationStatus] = mapped_column(
-        SAEnum(ApplicationStatus, name="application_status"),
+        SAEnum(ApplicationStatus, name="application_status", values_callable=lambda obj: [e.value for e in obj]),
         nullable=False,
         default=ApplicationStatus.RECEIVED,
         index=True,
